@@ -1,0 +1,4 @@
+# Offline verifier runtime bundled as pytest-runtime.tar.gz.
+# Source package: pytest 9.1.0 with packaging, pluggy, iniconfig and pygments.
+# The verifier extracts it under a root-private temporary directory and never copies it into /app.
+pytest==9.1.0

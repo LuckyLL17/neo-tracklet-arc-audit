@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""审计候选天体短弧观测；请实现公开接口。"""
+"""Implement the public NEO tracklet audit contract in instruction.md."""
 import sys
+
 sys.stderr.write("E_SCHEMA: audit implementation is incomplete\n")
 sys.exit(2)

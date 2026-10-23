@@ -1,3 +1,5 @@
 #!/bin/sh
 set -eu
-cp "$(dirname "$0")/neo_audit.py" "${TASK_WORKDIR:-$(cd "$(dirname "$0")/../environment" && pwd)}/neo_audit.py"
+cp "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)/main.py" /app/main.py
+chown runner:runner /app/main.py
+chmod 0644 /app/main.py

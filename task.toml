@@ -1,23 +1,32 @@
-schema_version = "1.3"
-allow_internet = true
+schema_version = "1.4"
+# 本题不需要外网；运行与验证均在离线策略下执行。
+allow_internet = false
 
 [task]
-id = "neo-tracklet-arc-audit"
 name = "xyj/neo-tracklet-arc-audit"
-title = "近地小天体短弧观测审计"
+version = "0.3.0"
+description = "审计近地小天体短弧观测，完成地心视差联合反演与候选星历关联。"
 authors = [{ name = "xyj" }]
-difficulty = "expert"
+keywords = ["astronomy", "near-earth-object", "astrometry", "parallax", "catalog-association"]
+
+[metadata]
+difficulty = "hard"
+category = "astronomy"
+tags = ["astrometry", "geocentric-parallax", "orbit-linking"]
+expert_time_estimate_min = 120
+junior_time_estimate_min = 300
 
 [environment]
 dockerfile = "environment/Dockerfile"
-network_mode = "public"
+network_mode = "no-network"
 
 [agent]
+user = "runner"
 timeout_sec = 900
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 180
-
-[metadata]
-domain = "astronomy"
-language = "python"
+user = "root"
+timeout_sec = 240
+environment_mode = "shared"
+network_mode = "no-network"
