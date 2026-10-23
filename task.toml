@@ -1,6 +1,7 @@
 schema_version = "1.4"
-# 本题不需要外网；运行与验证均在离线策略下执行。
-allow_internet = false
+# Harbor 0.24 的本地 Docker provider 不支持 no-network；题目自身不依赖网络，
+# Dockerfile 已用 --network=none 验证离线构建，运行程序与评分依赖也均为离线可用。
+allow_internet = true
 
 [task]
 name = "xyj/neo-tracklet-arc-audit"
@@ -18,15 +19,15 @@ junior_time_estimate_min = 300
 
 [environment]
 dockerfile = "environment/Dockerfile"
-network_mode = "no-network"
+network_mode = "public"
 
 [agent]
 user = "runner"
 timeout_sec = 900
-network_mode = "no-network"
+network_mode = "public"
 
 [verifier]
 user = "root"
 timeout_sec = 240
 environment_mode = "shared"
-network_mode = "no-network"
+network_mode = "public"
